@@ -1,0 +1,66 @@
+Linear Complexity
+
+-- Direct proportion with the input size. If the input size is increased, double the work. It involves single pass through the 
+input.
+
+we want to find out the number of occurrences of the letter a
+
+public int countChars(char c, String str) {
+  int count = 0;
+  for (int i = 0; i < str.length(); i++) {
+    if (str.charAt(i) == c) count++;
+  }
+  return count;
+}
+
+Quadratic Complexity
+
+This results in a runtime complexity of O(mn), where m and n are the sizes of the first and second input arrays. If the input arrays are the same size as n elements, this results in a runtime of O(n2). This can be demonstrated with the help of the following code:
+
+Quadratic complexity algorithms are not very performant for large input sizes
+
+This is when the list is empty, that is, when we have no common elements between the two arrays. Thus, this method has a best case space complexity of O(1), when there is no intersection.
+The memory in this case is equal to the size of one of our input arrays. In short, the worst space complexity of the method is O(n) 
+ O(n2), called bubble sort.
+
+
+public List<Integer> intersection(int[] a, int[] b) {
+  List<Integer> result = new ArrayList<>(a.length);
+  for (int x : a) {
+    for (int y : b) {
+      if (x == y) result.add(x);
+    }
+  }
+  return result;
+}
+
+Logarithmic Complexity
+  O(log n) - binary search
+
+ Common examples that operate in logarithmic times are database indexes and binary trees
+ Logarithmic algorithms are the opposite of exponential ones. As the input gets bigger, the rate of performance degradation gets smaller. 
+
+Exponential Complexity
+Examples of these include the traveling salesman problem and cracking a password using a brute force approach. Now, let's see an example of such problem.
+prime factorization problem
+If we take an input decimal number of n digits, this algorithm would perform in O(10n) in the worst case
+public List<Long> primeFactors(long x) {
+  ArrayList<Long> result = new ArrayList<>();
+  long factor = 2;
+  while (x > 1) {
+    if (x % factor == 0) {
+      result.add(factor);
+      x /= factor;
+    } else {
+      factor += 1;
+    }
+  }
+  return result;
+}
+
+
+Constant Complexity
+
+The efficiency of constant runtime algorithms remains fixed as we increase the input size. Many examples of these exist. Consider, for example, accessing an element in an array. Access performance doesn't depend on the size of the array, so as we increase the size of the array, the access speed stays constant.
+ finding the distance between two points and mapping a three-dimensional coordinate to a two-dimensional one
+
